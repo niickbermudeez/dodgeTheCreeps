@@ -46,9 +46,11 @@ func _process(delta):
 #    pass
 
 
-func _on_Player_body_entered(body):
+func _on_player_body_entered(_body):
  hide() # El jugador desapareix després de ser impactat.
+ print("1")
  emit_signal("hit")
+ print("2")
  # S'ha d'ajornar, ja que no podem canviar les propietats físiques en una crida de retorn de física.
  $CollisionShape2D.set_deferred("disabled", true)	
 
@@ -56,7 +58,3 @@ func start(pos):
  position = pos
  show()
  $CollisionShape2D.disabled = false
-
-
-func _on_player_hit():
-	pass # Replace with function body.
